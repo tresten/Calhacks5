@@ -1,0 +1,24 @@
+import ast
+from pymongo import MongoClient
+client = MongoClient('mongodb://master:P3W65dF8f3RAfqG@cluster0-shard-00-00-ardit.mongodb.net:27017, '
+                     'cluster0-shard-00-01-ardit.mongodb.net:27017,'
+                     'cluster0-shard-00-02-ardit.mongodb.net:27017/'
+                     'test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true')
+db = client['wikipedia-relations']
+collect = db.wikikeywords
+file = open("dbbackup", "r")
+ln = []
+ls=[]
+for line in file:
+    ln = line.split('],')
+ls.append(ast.literal_eval(ln[0]+']}'))
+for x in range(1,len(ln)-1):
+    ls.append(ast.literal_eval('{'+ln[x]+']}'))
+ls.append(ast.literal_eval('{'+ln[len(ln)-1]))
+for x in ls:
+    for y in x:
+        post = {"_id": y,
+                "urls": x[y]
+                }
+        post_id = collect.insert_one(post).inserted_id
+

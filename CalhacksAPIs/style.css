@@ -1,0 +1,71 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+.input-field>label {
+  color: white;
+}
+
+body {
+  background-image: url("./back-2.jpg");
+  background-size: cover;
+}
+
+.container {
+  margin-top: 10%;
+  width: 100%;
+}
+
+.main,.secondary {
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.main, .main > * {
+  width: 800px;
+}
+
+.main > * {
+  margin: auto;
+}
+
+#title {
+  margin-bottom: 20px;
+}
+
+.secondary {
+  width: 100px;
+  height: 100px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 6px 12px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+
+.blue {
+  color: #3361f0;
+}
+
+.white {
+  color: white;
+}
+
+
+
+
+iframe {
+
+padding: 6px 12px;
+display:block;
+align-self: center;
+box-sizing: border-box;
+vertical-align: middle;
+} 
+
